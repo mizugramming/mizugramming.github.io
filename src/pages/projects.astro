@@ -4,35 +4,47 @@ import ProjectCard from "../components/ProjectCard.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 ---
 
-<BaseLayout title="Projects | mizugramming">
+<BaseLayout title="プロジェクト | mizugramming" titleEn="Projects | mizugramming">
   <section class="page-hero">
     <div class="container">
       <SectionTitle
-        eyebrow="Projects"
-        title="Featured Projects"
-        description="Add project summaries, screenshots, demos, and repository links here."
+        eyebrow="プロジェクト"
+        eyebrowEn="Projects"
+        title="制作・研究プロジェクト"
+        titleEn="Featured Projects"
+        description="今後、概要、スクリーンショット、デモ、リポジトリリンクを追加していきます。"
+        descriptionEn="Add project summaries, screenshots, demos, and repository links here."
       />
     </div>
   </section>
 
   <section class="section section-tight">
     <div class="container">
-      <!-- Replace these placeholders with real project data when each project is ready. -->
+      <!-- 各プロジェクトが整理できたら、ここを実データに置き換えます。 -->
       <div class="card-grid">
         <ProjectCard
-          title="Baseball Simulation Lab"
-          description="Placeholder for a baseball simulator, match logic, animation GIFs, and simulation results."
-          tags={["Baseball", "Monte Carlo", "Visualization"]}
+          title="野球シミュレーションラボ"
+          titleEn="Baseball Simulation Lab"
+          description="野球シミュレーター、試合ロジック、アニメーション、シミュレーション結果を整理する予定です。"
+          descriptionEn="Placeholder for a baseball simulator, match logic, animation GIFs, and simulation results."
+          tags={["野球", "モンテカルロ", "可視化"]}
+          tagsEn={["Baseball", "Monte Carlo", "Visualization"]}
         />
         <ProjectCard
-          title="Batter Intent Optimization"
-          description="Placeholder for optimization models related to batter strategy and decision making."
-          tags={["Optimization", "Python", "Sports Analytics"]}
+          title="打者意図の最適化"
+          titleEn="Batter Intent Optimization"
+          description="打者の戦略や意思決定に関する最適化モデルをまとめる予定です。"
+          descriptionEn="Placeholder for optimization models related to batter strategy and decision making."
+          tags={["最適化", "Python", "スポーツ分析"]}
+          tagsEn={["Optimization", "Python", "Sports Analytics"]}
         />
         <ProjectCard
-          title="Submodular Greedy Study"
-          description="Placeholder for submodular optimization experiments and study notes."
-          tags={["Submodular Optimization", "Greedy Algorithm"]}
+          title="劣モジュラ貪欲法の学習"
+          titleEn="Submodular Greedy Study"
+          description="劣モジュラ最適化の実験、貪欲法の考察、学習メモを追加する予定です。"
+          descriptionEn="Placeholder for submodular optimization experiments and study notes."
+          tags={["劣モジュラ最適化", "貪欲法"]}
+          tagsEn={["Submodular Optimization", "Greedy Algorithm"]}
         />
       </div>
     </div>

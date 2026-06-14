@@ -3,13 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 ---
 
-<BaseLayout title="About | mizugramming">
+<BaseLayout title="自己紹介 | mizugramming" titleEn="About | mizugramming">
   <section class="page-hero">
     <div class="container">
       <SectionTitle
-        eyebrow="About"
-        title="About Me"
-        description="This page will introduce my background, interests, skills, and links."
+        eyebrow="自己紹介"
+        eyebrowEn="About"
+        title="自己紹介"
+        titleEn="About Me"
+        description="背景、関心分野、スキル、リンクを整理するページです。"
+        descriptionEn="This page will introduce my background, interests, skills, and links."
       />
     </div>
   </section>
@@ -17,30 +20,40 @@ import SectionTitle from "../components/SectionTitle.astro";
   <section class="section section-tight">
     <div class="container about-layout">
       <article class="content-block">
-        <h3>Profile</h3>
-        <p>
-          Name: mizugramming
+        <h3 data-i18n-ja="プロフィール" data-i18n-en="Profile">プロフィール</h3>
+        <p data-i18n-ja="名前: mizugramming" data-i18n-en="Name: mizugramming">
+          名前: mizugramming
         </p>
-        <p>
-          Short self-introduction placeholder. Add background, research interests,
-          and career goals here.
+        <p
+          data-i18n-ja="短い自己紹介をここに追加します。背景、研究関心、今後取り組みたいことを整理する予定です。"
+          data-i18n-en="Short self-introduction placeholder. Add background, research interests, and career goals here."
+        >
+          短い自己紹介をここに追加します。背景、研究関心、今後取り組みたいことを整理する予定です。
         </p>
       </article>
 
       <article class="content-block">
-        <h3>Interests</h3>
-        <!-- Edit this list as interests become more concrete. -->
+        <h3 data-i18n-ja="関心分野" data-i18n-en="Interests">関心分野</h3>
+        <!-- 関心分野が具体化したら、このリストを編集します。 -->
         <ul class="plain-list">
-          <li>Baseball simulation</li>
-          <li>Optimization</li>
-          <li>Sports analytics</li>
-          <li>Data visualization</li>
-          <li>Python programming</li>
+          <li data-i18n-ja="野球シミュレーション" data-i18n-en="Baseball simulation">
+            野球シミュレーション
+          </li>
+          <li data-i18n-ja="最適化" data-i18n-en="Optimization">最適化</li>
+          <li data-i18n-ja="スポーツアナリティクス" data-i18n-en="Sports analytics">
+            スポーツアナリティクス
+          </li>
+          <li data-i18n-ja="データ可視化" data-i18n-en="Data visualization">
+            データ可視化
+          </li>
+          <li data-i18n-ja="Pythonプログラミング" data-i18n-en="Python programming">
+            Pythonプログラミング
+          </li>
         </ul>
       </article>
 
       <article class="content-block">
-        <h3>Links</h3>
+        <h3 data-i18n-ja="リンク" data-i18n-en="Links">リンク</h3>
         <p>
           GitHub:
           <a href="https://github.com/mizugramming" target="_blank" rel="noreferrer">

@@ -2,34 +2,51 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 
-const notes = [];
+const notes: {
+  title: string;
+  titleEn: string;
+  description: string;
+  descriptionEn: string;
+}[] = [];
 ---
 
-<BaseLayout title="Notes | mizugramming">
+<BaseLayout title="メモ | mizugramming" titleEn="Notes | mizugramming">
   <section class="page-hero">
     <div class="container">
       <SectionTitle
-        eyebrow="Notes"
-        title="Study Notes"
-        description="Learning notes and technical articles will be listed here."
+        eyebrow="メモ"
+        eyebrowEn="Notes"
+        title="学習メモ"
+        titleEn="Study Notes"
+        description="学習メモや技術記事を、今後ここに追加していきます。"
+        descriptionEn="Learning notes and technical articles will be listed here."
       />
     </div>
   </section>
 
   <section class="section section-tight">
     <div class="container">
-      <!-- Add note items later, or replace this with Astro content collections. -->
+      <!-- 後から記事データを追加するか、Astroのcontent collectionsへ置き換えます。 -->
       {notes.length === 0 ? (
         <div class="empty-state">
-          <h3>No notes yet</h3>
-          <p>Future study notes will appear in this list.</p>
+          <h3 data-i18n-ja="まだメモはありません" data-i18n-en="No notes yet">
+            まだメモはありません
+          </h3>
+          <p
+            data-i18n-ja="今後追加する学習メモは、この一覧に表示されます。"
+            data-i18n-en="Future study notes will appear in this list."
+          >
+            今後追加する学習メモは、この一覧に表示されます。
+          </p>
         </div>
       ) : (
         <div class="list-grid">
           {notes.map((note) => (
             <article class="simple-card">
-              <h3>{note.title}</h3>
-              <p>{note.description}</p>
+              <h3 data-i18n-ja={note.title} data-i18n-en={note.titleEn}>{note.title}</h3>
+              <p data-i18n-ja={note.description} data-i18n-en={note.descriptionEn}>
+                {note.description}
+              </p>
             </article>
           ))}
         </div>

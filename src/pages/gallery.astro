@@ -4,33 +4,45 @@ import SectionTitle from "../components/SectionTitle.astro";
 
 const galleryItems = [
   {
-    title: "Simulation Result",
-    description: "Placeholder for 1000-game simulation summaries.",
+    title: "シミュレーション結果",
+    titleEn: "Simulation Result",
+    description: "1000試合シミュレーションなどの集計結果を追加する予定です。",
+    descriptionEn: "Placeholder for 1000-game simulation summaries.",
   },
   {
-    title: "Graph",
-    description: "Placeholder for visualizations and charts.",
+    title: "グラフ",
+    titleEn: "Graph",
+    description: "可視化画像や分析グラフを追加する予定です。",
+    descriptionEn: "Placeholder for visualizations and charts.",
   },
 ];
 ---
 
-<BaseLayout title="Gallery | mizugramming">
+<BaseLayout title="ギャラリー | mizugramming" titleEn="Gallery | mizugramming">
   <section class="page-hero">
     <div class="container">
       <SectionTitle
-        eyebrow="Gallery"
-        title="Visual Gallery"
-        description="Add GIFs, plots, simulation figures, and visual explanation images here."
+        eyebrow="ギャラリー"
+        eyebrowEn="Gallery"
+        title="ビジュアルギャラリー"
+        titleEn="Visual Gallery"
+        description="GIF、グラフ、シミュレーション図、説明用の画像を追加するページです。"
+        descriptionEn="Add GIFs, plots, simulation figures, and visual explanation images here."
       />
     </div>
   </section>
 
   <section class="section section-tight">
     <div class="container">
-      <!-- Place images under public/assets/images or public/assets/gifs, then replace the placeholders. -->
+      <!-- 画像はpublic/assets/images、GIFはpublic/assets/gifsに置いて差し替えます。 -->
       <div class="gallery-grid">
         <article class="gallery-card">
-          <div class="open-campus-demo" aria-label="Open Campus pitch animation preview">
+          <div
+            class="open-campus-demo"
+            aria-label="Open Campus 投球アニメーションのプレビュー"
+            data-i18n-aria-label-ja="Open Campus 投球アニメーションのプレビュー"
+            data-i18n-aria-label-en="Open Campus pitch animation preview"
+          >
             <div class="demo-zone">
               <span class="demo-zone-line"></span>
               <span class="demo-zone-line"></span>
@@ -44,24 +56,38 @@ const galleryItems = [
               <span class="demo-contact demo-contact-three"></span>
             </div>
             <div class="demo-caption">
-              <strong>Pitch Animation</strong>
-              <span>Open_Campas prototype</span>
+              <strong data-i18n-ja="投球アニメーション" data-i18n-en="Pitch Animation">
+                投球アニメーション
+              </strong>
+              <span data-i18n-ja="Open_Campas プロトタイプ" data-i18n-en="Open_Campas prototype">
+                Open_Campas プロトタイプ
+              </span>
             </div>
           </div>
-          <h3>Open Campus Pitch Animation</h3>
-          <p>
-            Trial preview based on the pitch and contact animation from
-            <code>/home/ktbys/Open_Campas</code>.
+          <h3
+            data-i18n-ja="Open Campus 投球アニメーション"
+            data-i18n-en="Open Campus Pitch Animation"
+          >
+            Open Campus 投球アニメーション
+          </h3>
+          <p
+            data-i18n-ja="/home/ktbys/Open_Campas の投球・コンタクト表現をもとにした試作プレビューです。"
+            data-i18n-en="Trial preview based on the pitch and contact animation from /home/ktbys/Open_Campas."
+          >
+            <code>/home/ktbys/Open_Campas</code>
+            の投球・コンタクト表現をもとにした試作プレビューです。
           </p>
         </article>
 
         {galleryItems.map((item) => (
           <article class="gallery-card">
             <div class="visual-placeholder" aria-hidden="true">
-              <span>{item.title}</span>
+              <span data-i18n-ja={item.title} data-i18n-en={item.titleEn}>{item.title}</span>
             </div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+            <h3 data-i18n-ja={item.title} data-i18n-en={item.titleEn}>{item.title}</h3>
+            <p data-i18n-ja={item.description} data-i18n-en={item.descriptionEn}>
+              {item.description}
+            </p>
           </article>
         ))}
       </div>

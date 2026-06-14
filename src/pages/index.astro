@@ -4,30 +4,70 @@ import ProjectCard from "../components/ProjectCard.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 ---
 
-<BaseLayout title="Home | mizugramming">
+<BaseLayout title="ホーム | mizugramming" titleEn="Home | mizugramming">
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow">Portfolio</p>
+        <p class="eyebrow" data-i18n-ja="ポートフォリオ" data-i18n-en="Portfolio">
+          ポートフォリオ
+        </p>
         <h1>mizugramming</h1>
-        <p class="hero-lead">Baseball Simulation / Optimization / Data Visualization</p>
-        <p>
-          This site will introduce my projects, research interests, and study notes.
+        <p
+          class="hero-lead"
+          data-i18n-ja="野球シミュレーション / 最適化 / データ可視化"
+          data-i18n-en="Baseball Simulation / Optimization / Data Visualization"
+        >
+          野球シミュレーション / 最適化 / データ可視化
+        </p>
+        <p
+          data-i18n-ja="このサイトでは、制作プロジェクト、研究関心、学習メモを整理して紹介します。"
+          data-i18n-en="This site will introduce my projects, research interests, and study notes."
+        >
+          このサイトでは、制作プロジェクト、研究関心、学習メモを整理して紹介します。
         </p>
         <div class="hero-actions">
-          <a class="button" href="/projects">View Projects</a>
-          <a class="button button-secondary" href="/research">Research Interests</a>
+          <a
+            class="button"
+            href="/projects"
+            data-i18n-ja="プロジェクトを見る"
+            data-i18n-en="View Projects"
+          >
+            プロジェクトを見る
+          </a>
+          <a
+            class="button button-secondary"
+            href="/research"
+            data-i18n-ja="研究テーマを見る"
+            data-i18n-en="Research Interests"
+          >
+            研究テーマを見る
+          </a>
         </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Main themes">
-        <h2>Main Themes</h2>
+      <aside
+        class="hero-panel"
+        aria-label="主なテーマ"
+        data-i18n-aria-label-ja="主なテーマ"
+        data-i18n-aria-label-en="Main themes"
+      >
+        <h2 data-i18n-ja="主なテーマ" data-i18n-en="Main Themes">主なテーマ</h2>
         <ul class="theme-list">
-          <li>Baseball simulation</li>
-          <li>Monte Carlo simulation</li>
-          <li>Sports analytics</li>
-          <li>Submodular optimization</li>
-          <li>Python programming</li>
+          <li data-i18n-ja="野球シミュレーション" data-i18n-en="Baseball simulation">
+            野球シミュレーション
+          </li>
+          <li data-i18n-ja="モンテカルロシミュレーション" data-i18n-en="Monte Carlo simulation">
+            モンテカルロシミュレーション
+          </li>
+          <li data-i18n-ja="スポーツアナリティクス" data-i18n-en="Sports analytics">
+            スポーツアナリティクス
+          </li>
+          <li data-i18n-ja="劣モジュラ最適化" data-i18n-en="Submodular optimization">
+            劣モジュラ最適化
+          </li>
+          <li data-i18n-ja="Pythonプログラミング" data-i18n-en="Python programming">
+            Pythonプログラミング
+          </li>
         </ul>
       </aside>
     </div>
@@ -36,27 +76,39 @@ import SectionTitle from "../components/SectionTitle.astro";
   <section class="section">
     <div class="container">
       <SectionTitle
-        eyebrow="Featured"
-        title="Representative Projects"
-        description="Project details will be added as the portfolio grows."
+        eyebrow="注目"
+        eyebrowEn="Featured"
+        title="代表プロジェクト"
+        titleEn="Representative Projects"
+        description="プロジェクトの詳細は、ポートフォリオを育てながら追加していきます。"
+        descriptionEn="Project details will be added as the portfolio grows."
       />
 
-      <!-- Add project pages later and update each href. -->
+      <!-- 後から各プロジェクトの詳細ページを作り、hrefを更新します。 -->
       <div class="card-grid">
         <ProjectCard
-          title="Baseball Simulation Lab"
-          description="Placeholder for baseball game simulation experiments and visual outputs."
-          tags={["Baseball", "Simulation", "Python"]}
+          title="野球シミュレーションラボ"
+          titleEn="Baseball Simulation Lab"
+          description="野球の試合シミュレーション実験や可視化結果を追加する予定です。"
+          descriptionEn="Placeholder for baseball game simulation experiments and visual outputs."
+          tags={["野球", "シミュレーション", "Python"]}
+          tagsEn={["Baseball", "Simulation", "Python"]}
         />
         <ProjectCard
-          title="Batter Intent Optimization"
-          description="Placeholder for modeling batter decisions and optimization strategies."
-          tags={["Optimization", "Sports Analytics"]}
+          title="打者意図の最適化"
+          titleEn="Batter Intent Optimization"
+          description="打者の判断や戦略を、モデル化と最適化の観点から整理する予定です。"
+          descriptionEn="Placeholder for modeling batter decisions and optimization strategies."
+          tags={["最適化", "スポーツ分析"]}
+          tagsEn={["Optimization", "Sports Analytics"]}
         />
         <ProjectCard
-          title="Submodular Greedy Study"
-          description="Placeholder for notes and experiments on greedy algorithms."
-          tags={["Submodular", "Algorithms"]}
+          title="劣モジュラ貪欲法の学習"
+          titleEn="Submodular Greedy Study"
+          description="貪欲アルゴリズムや劣モジュラ最適化に関する学習メモを追加する予定です。"
+          descriptionEn="Placeholder for notes and experiments on greedy algorithms."
+          tags={["劣モジュラ", "アルゴリズム"]}
+          tagsEn={["Submodular", "Algorithms"]}
         />
       </div>
     </div>

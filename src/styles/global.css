@@ -123,6 +123,23 @@ main {
   border: 1px solid var(--color-border);
 }
 
+.language-toggle {
+  background: var(--color-accent-dark);
+  border: 1px solid var(--color-accent-dark);
+  border-radius: 999px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.45rem 0.8rem;
+}
+
+.language-toggle:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .hero {
   padding: 6rem 0 4rem;
 }

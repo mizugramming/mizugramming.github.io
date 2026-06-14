@@ -1,27 +1,52 @@
 ---
 interface Props {
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
   tags?: string[];
+  tagsEn?: string[];
   href?: string;
   status?: string;
+  statusEn?: string;
 }
 
-const { title, description, tags = [], href = "#", status = "Planned" } = Astro.props;
+const {
+  title,
+  titleEn = title,
+  description,
+  descriptionEn = description,
+  tags = [],
+  tagsEn = tags,
+  href = "#",
+  status = "準備中",
+  statusEn = "Planned",
+} = Astro.props;
 ---
 
 <article class="project-card">
   <div class="card-meta">
-    <span class="status-label">{status}</span>
+    <span class="status-label" data-i18n-ja={status} data-i18n-en={statusEn}>
+      {status}
+    </span>
   </div>
-  <h3>{title}</h3>
-  <p>{description}</p>
+  <h3 data-i18n-ja={title} data-i18n-en={titleEn}>{title}</h3>
+  <p data-i18n-ja={description} data-i18n-en={descriptionEn}>{description}</p>
 
   {tags.length > 0 && (
     <ul class="tag-list" aria-label={`${title} tags`}>
-      {tags.map((tag) => <li>{tag}</li>)}
+      {tags.map((tag, index) => (
+        <li data-i18n-ja={tag} data-i18n-en={tagsEn[index] ?? tag}>{tag}</li>
+      ))}
     </ul>
   )}
 
-  <a class="card-link" href={href}>View details</a>
+  <a
+    class="card-link"
+    href={href}
+    data-i18n-ja="詳細を見る"
+    data-i18n-en="View details"
+  >
+    詳細を見る
+  </a>
 </article>

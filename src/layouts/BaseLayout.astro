@@ -5,23 +5,32 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  titleEn?: string;
   description?: string;
+  descriptionEn?: string;
 }
 
 const {
-  title = "mizugramming | Portfolio",
-  description = "Portfolio site for baseball simulation, optimization, sports analytics, and Python programming.",
+  title = "mizugramming | ポートフォリオ",
+  titleEn = "mizugramming | Portfolio",
+  description = "野球シミュレーション、最適化、スポーツアナリティクス、Pythonプログラミングに関するポートフォリオサイトです。",
+  descriptionEn = "Portfolio site for baseball simulation, optimization, sports analytics, and Python programming.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja" data-language="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta
+      name="description"
+      content={description}
+      data-i18n-content-ja={description}
+      data-i18n-content-en={descriptionEn}
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title data-i18n-ja={title} data-i18n-en={titleEn}>{title}</title>
   </head>
   <body>
     <Header />
@@ -29,5 +38,86 @@ const {
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      (() => {
+        const storageKey = "mizugramming-language";
+        const normalizeLanguage = (language) => (language === "en" ? "en" : "ja");
+
+        const getSavedLanguage = () => {
+          try {
+            return normalizeLanguage(localStorage.getItem(storageKey));
+          } catch {
+            return "ja";
+          }
+        };
+
+        const saveLanguage = (language) => {
+          try {
+            localStorage.setItem(storageKey, language);
+          } catch {
+            // localStorageが使えない環境でも表示切り替え自体は動かします。
+          }
+        };
+
+        const applyLanguage = (language) => {
+          const nextLanguage = normalizeLanguage(language);
+          const documentElement = document.documentElement;
+          documentElement.lang = nextLanguage;
+          documentElement.dataset.language = nextLanguage;
+
+          document.querySelectorAll("[data-i18n-ja][data-i18n-en]").forEach((element) => {
+            const translatedText = element.getAttribute(`data-i18n-${nextLanguage}`);
+            if (translatedText !== null) {
+              element.textContent = translatedText;
+            }
+          });
+
+          document
+            .querySelectorAll("[data-i18n-content-ja][data-i18n-content-en]")
+            .forEach((element) => {
+              const translatedContent = element.getAttribute(`data-i18n-content-${nextLanguage}`);
+              if (translatedContent !== null) {
+                element.setAttribute("content", translatedContent);
+              }
+            });
+
+          document
+            .querySelectorAll("[data-i18n-aria-label-ja][data-i18n-aria-label-en]")
+            .forEach((element) => {
+              const translatedLabel = element.getAttribute(`data-i18n-aria-label-${nextLanguage}`);
+              if (translatedLabel !== null) {
+                element.setAttribute("aria-label", translatedLabel);
+              }
+            });
+
+          document.querySelectorAll("[data-language-toggle]").forEach((button) => {
+            const buttonText = nextLanguage === "ja"
+              ? button.getAttribute("data-label-en")
+              : button.getAttribute("data-label-ja");
+            const buttonLabel = nextLanguage === "ja"
+              ? button.getAttribute("data-aria-label-en")
+              : button.getAttribute("data-aria-label-ja");
+
+            if (buttonText) button.textContent = buttonText;
+            if (buttonLabel) button.setAttribute("aria-label", buttonLabel);
+          });
+        };
+
+        const initLanguageSwitcher = () => {
+          applyLanguage(getSavedLanguage());
+
+          document.querySelectorAll("[data-language-toggle]").forEach((button) => {
+            button.addEventListener("click", () => {
+              const currentLanguage = normalizeLanguage(document.documentElement.dataset.language);
+              const nextLanguage = currentLanguage === "ja" ? "en" : "ja";
+              applyLanguage(nextLanguage);
+              saveLanguage(nextLanguage);
+            });
+          });
+        };
+
+        initLanguageSwitcher();
+      })();
+    </script>
   </body>
 </html>

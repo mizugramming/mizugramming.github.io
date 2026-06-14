@@ -2,26 +2,39 @@
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Research", href: "/research" },
-  { label: "Notes", href: "/notes" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
+  { label: "ホーム", labelEn: "Home", href: "/" },
+  { label: "プロジェクト", labelEn: "Projects", href: "/projects" },
+  { label: "研究", labelEn: "Research", href: "/research" },
+  { label: "メモ", labelEn: "Notes", href: "/notes" },
+  { label: "ギャラリー", labelEn: "Gallery", href: "/gallery" },
+  { label: "自己紹介", labelEn: "About", href: "/about" },
 ];
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="site-logo" href="/" aria-label="mizugramming home">
+    <a
+      class="site-logo"
+      href="/"
+      aria-label="mizugramming ホーム"
+      data-i18n-aria-label-ja="mizugramming ホーム"
+      data-i18n-aria-label-en="mizugramming home"
+    >
       mizugramming
     </a>
 
-    <nav class="site-nav" aria-label="Primary navigation">
+    <nav
+      class="site-nav"
+      aria-label="主要ナビゲーション"
+      data-i18n-aria-label-ja="主要ナビゲーション"
+      data-i18n-aria-label-en="Primary navigation"
+    >
       {navItems.map((item) => (
         <a
           href={item.href}
           class:list={[{ active: currentPath === item.href }, "nav-link"]}
+          data-i18n-ja={item.label}
+          data-i18n-en={item.labelEn}
         >
           {item.label}
         </a>
@@ -34,6 +47,18 @@ const navItems = [
       >
         GitHub
       </a>
+      <button
+        class="language-toggle"
+        type="button"
+        data-language-toggle
+        data-label-ja="日本語"
+        data-label-en="English"
+        data-aria-label-ja="日本語表示に切り替え"
+        data-aria-label-en="英語表示に切り替え"
+        aria-label="英語表示に切り替え"
+      >
+        English
+      </button>
     </nav>
   </div>
 </header>

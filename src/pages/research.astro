@@ -4,39 +4,50 @@ import SectionTitle from "../components/SectionTitle.astro";
 
 const interests = [
   {
-    title: "Simulation",
-    description: "Placeholder for Monte Carlo simulation, baseball game modeling, and experiment design.",
+    title: "シミュレーション",
+    titleEn: "Simulation",
+    description: "モンテカルロシミュレーション、野球の試合モデル、実験設計を整理する予定です。",
+    descriptionEn: "Placeholder for Monte Carlo simulation, baseball game modeling, and experiment design.",
   },
   {
-    title: "Optimization",
-    description: "Placeholder for mathematical optimization, decision models, and algorithm studies.",
+    title: "最適化",
+    titleEn: "Optimization",
+    description: "数理最適化、意思決定モデル、アルゴリズム学習の内容を追加する予定です。",
+    descriptionEn: "Placeholder for mathematical optimization, decision models, and algorithm studies.",
   },
   {
-    title: "Sports Analytics",
-    description: "Placeholder for baseball data analysis, metrics, and visualization topics.",
+    title: "スポーツアナリティクス",
+    titleEn: "Sports Analytics",
+    description: "野球データ分析、評価指標、データ可視化のテーマを整理する予定です。",
+    descriptionEn: "Placeholder for baseball data analysis, metrics, and visualization topics.",
   },
 ];
 ---
 
-<BaseLayout title="Research | mizugramming">
+<BaseLayout title="研究 | mizugramming" titleEn="Research | mizugramming">
   <section class="page-hero">
     <div class="container">
       <SectionTitle
-        eyebrow="Research"
-        title="Research & Study Interests"
-        description="This page will organize topics studied through research, coursework, and personal projects."
+        eyebrow="研究"
+        eyebrowEn="Research"
+        title="研究・学習テーマ"
+        titleEn="Research & Study Interests"
+        description="研究、授業、個人制作を通して学んだテーマを整理するページです。"
+        descriptionEn="This page will organize topics studied through research, coursework, and personal projects."
       />
     </div>
   </section>
 
   <section class="section section-tight">
     <div class="container">
-      <!-- Add new categories to the interests array above. -->
+      <!-- 新しい研究カテゴリは、上のinterests配列に追加します。 -->
       <div class="list-grid">
         {interests.map((item) => (
           <article class="simple-card">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+            <h3 data-i18n-ja={item.title} data-i18n-en={item.titleEn}>{item.title}</h3>
+            <p data-i18n-ja={item.description} data-i18n-en={item.descriptionEn}>
+              {item.description}
+            </p>
           </article>
         ))}
       </div>

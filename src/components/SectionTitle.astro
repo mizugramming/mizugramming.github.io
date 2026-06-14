@@ -1,15 +1,33 @@
 ---
 interface Props {
   eyebrow?: string;
+  eyebrowEn?: string;
   title: string;
+  titleEn?: string;
   description?: string;
+  descriptionEn?: string;
 }
 
-const { eyebrow, title, description } = Astro.props;
+const {
+  eyebrow,
+  eyebrowEn = eyebrow,
+  title,
+  titleEn = title,
+  description,
+  descriptionEn = description,
+} = Astro.props;
 ---
 
 <div class="section-title">
-  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  <h2>{title}</h2>
-  {description && <p>{description}</p>}
+  {eyebrow && (
+    <p class="eyebrow" data-i18n-ja={eyebrow} data-i18n-en={eyebrowEn}>
+      {eyebrow}
+    </p>
+  )}
+  <h2 data-i18n-ja={title} data-i18n-en={titleEn}>{title}</h2>
+  {description && (
+    <p data-i18n-ja={description} data-i18n-en={descriptionEn}>
+      {description}
+    </p>
+  )}
 </div>
