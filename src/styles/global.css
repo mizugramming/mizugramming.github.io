@@ -320,6 +320,224 @@ main {
   justify-content: center;
 }
 
+.open-campus-demo {
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(circle at 50% 98%, rgba(42, 127, 73, 0.42), transparent 34%),
+    radial-gradient(circle at 74% 18%, rgba(70, 147, 217, 0.28), transparent 34%),
+    linear-gradient(160deg, #10243e, #071321 72%);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-zone {
+  border: 2px solid rgba(255, 255, 255, 0.62);
+  border-radius: 6px;
+  height: 56%;
+  left: 50%;
+  position: absolute;
+  top: 49%;
+  transform: translate(-50%, -50%);
+  width: 38%;
+}
+
+.demo-zone-line {
+  background: rgba(255, 255, 255, 0.18);
+  position: absolute;
+}
+
+.demo-zone-line:nth-child(1),
+.demo-zone-line:nth-child(2) {
+  height: 100%;
+  top: 0;
+  width: 1px;
+}
+
+.demo-zone-line:nth-child(1) {
+  left: 33.333%;
+}
+
+.demo-zone-line:nth-child(2) {
+  left: 66.666%;
+}
+
+.demo-zone-line:nth-child(3),
+.demo-zone-line:nth-child(4) {
+  height: 1px;
+  left: 0;
+  width: 100%;
+}
+
+.demo-zone-line:nth-child(3) {
+  top: 33.333%;
+}
+
+.demo-zone-line:nth-child(4) {
+  top: 66.666%;
+}
+
+.demo-ball {
+  animation: demoPitchFlight 2.8s cubic-bezier(0.18, 0.72, 0.18, 1) infinite;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0 22%, #e0f2fe 23% 54%, #38bdf8 56% 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.78);
+  height: 18px;
+  left: 50%;
+  position: absolute;
+  top: 115%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+}
+
+.demo-impact {
+  animation: demoImpactPulse 2.8s ease-out infinite;
+  border: 2px solid rgba(251, 146, 60, 0.92);
+  border-radius: 999px;
+  height: 64px;
+  left: 68%;
+  opacity: 0;
+  position: absolute;
+  top: 38%;
+  transform: translate(-50%, -50%) scale(0.35);
+  width: 64px;
+}
+
+.demo-swing {
+  animation: demoSwingPlane 2.8s cubic-bezier(0.16, 0.72, 0.2, 1) infinite;
+  border-bottom: 4px solid rgba(251, 191, 36, 0.95);
+  border-radius: 0 0 999px 999px;
+  height: 46px;
+  left: 68%;
+  opacity: 0;
+  position: absolute;
+  top: 38%;
+  transform: translate(-50%, -48%) rotate(-38deg) scaleX(0.25);
+  transform-origin: right center;
+  width: 108px;
+}
+
+.demo-contact {
+  animation: demoContactSpark 2.8s ease-out infinite;
+  background: rgba(255, 237, 213, 0.95);
+  border-radius: 999px;
+  height: 3px;
+  left: 68%;
+  opacity: 0;
+  position: absolute;
+  top: 38%;
+  transform-origin: left center;
+  width: 54px;
+}
+
+.demo-contact-one {
+  transform: rotate(0deg) translateX(8px);
+}
+
+.demo-contact-two {
+  animation-delay: 0.04s;
+  transform: rotate(62deg) translateX(8px);
+}
+
+.demo-contact-three {
+  animation-delay: 0.08s;
+  transform: rotate(124deg) translateX(8px);
+}
+
+.demo-caption {
+  align-items: baseline;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 226, 239, 0.72);
+  border-radius: 999px;
+  bottom: 0.8rem;
+  display: flex;
+  gap: 0.55rem;
+  left: 0.8rem;
+  padding: 0.45rem 0.7rem;
+  position: absolute;
+}
+
+.demo-caption strong {
+  color: var(--color-accent-dark);
+  font-size: 0.82rem;
+}
+
+.demo-caption span {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+@keyframes demoPitchFlight {
+  0% {
+    left: 50%;
+    opacity: 0;
+    top: 116%;
+    transform: translate(-50%, -50%) scale(2.1);
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  58%,
+  100% {
+    left: 68%;
+    opacity: 1;
+    top: 38%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes demoImpactPulse {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+@keyframes demoSwingPlane {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translate(-50%, -48%) rotate(-38deg) scaleX(0.25);
+  }
+
+  70%,
+  100% {
+    opacity: 0.88;
+    transform: translate(-50%, -48%) rotate(15deg) scaleX(1);
+  }
+}
+
+@keyframes demoContactSpark {
+  0%,
+  61% {
+    opacity: 0;
+    width: 14px;
+  }
+
+  71% {
+    opacity: 0.95;
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    width: 62px;
+  }
+}
+
 .about-layout {
   display: grid;
   gap: 1.25rem;
@@ -375,6 +593,21 @@ main {
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-ball,
+  .demo-impact,
+  .demo-swing,
+  .demo-contact {
+    animation: none;
+  }
+
+  .demo-ball {
+    left: 68%;
+    opacity: 1;
+    top: 38%;
   }
 }
 

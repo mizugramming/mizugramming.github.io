@@ -4,10 +4,6 @@ import SectionTitle from "../components/SectionTitle.astro";
 
 const galleryItems = [
   {
-    title: "Animation",
-    description: "Placeholder for baseball simulator GIFs.",
-  },
-  {
     title: "Simulation Result",
     description: "Placeholder for 1000-game simulation summaries.",
   },
@@ -33,6 +29,32 @@ const galleryItems = [
     <div class="container">
       <!-- Place images under public/assets/images or public/assets/gifs, then replace the placeholders. -->
       <div class="gallery-grid">
+        <article class="gallery-card">
+          <div class="open-campus-demo" aria-label="Open Campus pitch animation preview">
+            <div class="demo-zone">
+              <span class="demo-zone-line"></span>
+              <span class="demo-zone-line"></span>
+              <span class="demo-zone-line"></span>
+              <span class="demo-zone-line"></span>
+              <span class="demo-ball"></span>
+              <span class="demo-impact"></span>
+              <span class="demo-swing"></span>
+              <span class="demo-contact demo-contact-one"></span>
+              <span class="demo-contact demo-contact-two"></span>
+              <span class="demo-contact demo-contact-three"></span>
+            </div>
+            <div class="demo-caption">
+              <strong>Pitch Animation</strong>
+              <span>Open_Campas prototype</span>
+            </div>
+          </div>
+          <h3>Open Campus Pitch Animation</h3>
+          <p>
+            Trial preview based on the pitch and contact animation from
+            <code>/home/ktbys/Open_Campas</code>.
+          </p>
+        </article>
+
         {galleryItems.map((item) => (
           <article class="gallery-card">
             <div class="visual-placeholder" aria-hidden="true">
