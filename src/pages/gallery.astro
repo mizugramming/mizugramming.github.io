@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+const galleryItems = [
+  {
+    title: "Animation",
+    description: "Placeholder for baseball simulator GIFs.",
+  },
+  {
+    title: "Simulation Result",
+    description: "Placeholder for 1000-game simulation summaries.",
+  },
+  {
+    title: "Graph",
+    description: "Placeholder for visualizations and charts.",
+  },
+];
+---
+
+<BaseLayout title="Gallery | mizugramming">
+  <section class="page-hero">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Gallery"
+        title="Visual Gallery"
+        description="Add GIFs, plots, simulation figures, and visual explanation images here."
+      />
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <!-- Place images under public/assets/images or public/assets/gifs, then replace the placeholders. -->
+      <div class="gallery-grid">
+        {galleryItems.map((item) => (
+          <article class="gallery-card">
+            <div class="visual-placeholder" aria-hidden="true">
+              <span>{item.title}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+const notes = [];
+---
+
+<BaseLayout title="Notes | mizugramming">
+  <section class="page-hero">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Notes"
+        title="Study Notes"
+        description="Learning notes and technical articles will be listed here."
+      />
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <!-- Add note items later, or replace this with Astro content collections. -->
+      {notes.length === 0 ? (
+        <div class="empty-state">
+          <h3>No notes yet</h3>
+          <p>Future study notes will appear in this list.</p>
+        </div>
+      ) : (
+        <div class="list-grid">
+          {notes.map((note) => (
+            <article class="simple-card">
+              <h3>{note.title}</h3>
+              <p>{note.description}</p>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

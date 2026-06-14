@@ -1,0 +1,39 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Research", href: "/research" },
+  { label: "Notes", href: "/notes" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About", href: "/about" },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-logo" href="/" aria-label="mizugramming home">
+      mizugramming
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[{ active: currentPath === item.href }, "nav-link"]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        class="nav-link nav-link-external"
+        href="https://github.com/mizugramming"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>

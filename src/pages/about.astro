@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<BaseLayout title="About | mizugramming">
+  <section class="page-hero">
+    <div class="container">
+      <SectionTitle
+        eyebrow="About"
+        title="About Me"
+        description="This page will introduce my background, interests, skills, and links."
+      />
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container about-layout">
+      <article class="content-block">
+        <h3>Profile</h3>
+        <p>
+          Name: mizugramming
+        </p>
+        <p>
+          Short self-introduction placeholder. Add background, research interests,
+          and career goals here.
+        </p>
+      </article>
+
+      <article class="content-block">
+        <h3>Interests</h3>
+        <!-- Edit this list as interests become more concrete. -->
+        <ul class="plain-list">
+          <li>Baseball simulation</li>
+          <li>Optimization</li>
+          <li>Sports analytics</li>
+          <li>Data visualization</li>
+          <li>Python programming</li>
+        </ul>
+      </article>
+
+      <article class="content-block">
+        <h3>Links</h3>
+        <p>
+          GitHub:
+          <a href="https://github.com/mizugramming" target="_blank" rel="noreferrer">
+            github.com/mizugramming
+          </a>
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

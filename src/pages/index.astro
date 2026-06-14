@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<BaseLayout title="Home | mizugramming">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h1>mizugramming</h1>
+        <p class="hero-lead">Baseball Simulation / Optimization / Data Visualization</p>
+        <p>
+          This site will introduce my projects, research interests, and study notes.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/projects">View Projects</a>
+          <a class="button button-secondary" href="/research">Research Interests</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Main themes">
+        <h2>Main Themes</h2>
+        <ul class="theme-list">
+          <li>Baseball simulation</li>
+          <li>Monte Carlo simulation</li>
+          <li>Sports analytics</li>
+          <li>Submodular optimization</li>
+          <li>Python programming</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Featured"
+        title="Representative Projects"
+        description="Project details will be added as the portfolio grows."
+      />
+
+      <!-- Add project pages later and update each href. -->
+      <div class="card-grid">
+        <ProjectCard
+          title="Baseball Simulation Lab"
+          description="Placeholder for baseball game simulation experiments and visual outputs."
+          tags={["Baseball", "Simulation", "Python"]}
+        />
+        <ProjectCard
+          title="Batter Intent Optimization"
+          description="Placeholder for modeling batter decisions and optimization strategies."
+          tags={["Optimization", "Sports Analytics"]}
+        />
+        <ProjectCard
+          title="Submodular Greedy Study"
+          description="Placeholder for notes and experiments on greedy algorithms."
+          tags={["Submodular", "Algorithms"]}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

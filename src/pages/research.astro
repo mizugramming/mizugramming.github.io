@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+const interests = [
+  {
+    title: "Simulation",
+    description: "Placeholder for Monte Carlo simulation, baseball game modeling, and experiment design.",
+  },
+  {
+    title: "Optimization",
+    description: "Placeholder for mathematical optimization, decision models, and algorithm studies.",
+  },
+  {
+    title: "Sports Analytics",
+    description: "Placeholder for baseball data analysis, metrics, and visualization topics.",
+  },
+];
+---
+
+<BaseLayout title="Research | mizugramming">
+  <section class="page-hero">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Research"
+        title="Research & Study Interests"
+        description="This page will organize topics studied through research, coursework, and personal projects."
+      />
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <!-- Add new categories to the interests array above. -->
+      <div class="list-grid">
+        {interests.map((item) => (
+          <article class="simple-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

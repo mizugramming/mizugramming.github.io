@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<BaseLayout title="Projects | mizugramming">
+  <section class="page-hero">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Projects"
+        title="Featured Projects"
+        description="Add project summaries, screenshots, demos, and repository links here."
+      />
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <!-- Replace these placeholders with real project data when each project is ready. -->
+      <div class="card-grid">
+        <ProjectCard
+          title="Baseball Simulation Lab"
+          description="Placeholder for a baseball simulator, match logic, animation GIFs, and simulation results."
+          tags={["Baseball", "Monte Carlo", "Visualization"]}
+        />
+        <ProjectCard
+          title="Batter Intent Optimization"
+          description="Placeholder for optimization models related to batter strategy and decision making."
+          tags={["Optimization", "Python", "Sports Analytics"]}
+        />
+        <ProjectCard
+          title="Submodular Greedy Study"
+          description="Placeholder for submodular optimization experiments and study notes."
+          tags={["Submodular Optimization", "Greedy Algorithm"]}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
