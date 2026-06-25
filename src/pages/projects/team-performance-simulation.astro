@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+
+const stateDefinitions = [
+  {
+    label: "Outs",
+    value: "{0, 1, 2}",
+    description: "アウト数",
+    descriptionEn: "Number of outs",
+  },
+  {
+    label: "Bases",
+    value: "{0, 1}^3",
+    description: "一塁・二塁・三塁の占有状態",
+    descriptionEn: "Occupancy of first, second, and third base",
+  },
+  {
+    label: "State",
+    value: "O x B",
+    description: "試合状況を表す状態空間",
+    descriptionEn: "State space representing game context",
+  },
+];
+
+const intentPatterns = [
+  {
+    title: "コンタクト",
+    titleEn: "Contact",
+    description: "空振りを抑え、打球発生を優先する目的意識。",
+    descriptionEn: "Prioritizes putting the ball in play while reducing misses.",
+  },
+  {
+    title: "選球眼",
+    titleEn: "Plate Discipline",
+    description: "投球の選定や低スイング率を重視する目的意識。",
+    descriptionEn: "Emphasizes pitch selection and lower swing rate.",
+  },
+  {
+    title: "強振",
+    titleEn: "Power Swing",
+    description: "打球速度・角度や長打を狙う目的意識。",
+    descriptionEn: "Targets stronger batted-ball quality and extra-base outcomes.",
+  },
+  {
+    title: "バント",
+    titleEn: "Bunt",
+    description: "イベント情報として状況変化を明示的に扱う目的意識。",
+    descriptionEn: "Treats the event as a situational state-changing action.",
+  },
+];
+
+const resultMetrics = [
+  {
+    value: "24",
+    label: "アウト数と塁状況からなる基本状態数",
+    labelEn: "Base states from outs and base occupancy",
+  },
+  {
+    value: "1000",
+    label: "比較シミュレーション試合数",
+    labelEn: "Games used for comparison simulation",
+  },
+  {
+    value: "3.0 -> 4.3",
+    label: "最適化後の平均得点改善",
+    labelEn: "Average scoring improvement after optimization",
+  },
+];
+---
+
+<BaseLayout
+  title="マルコフ過程によるチーム力向上分析 | mizugramming"
+  titleEn="Team Performance Analysis with Markov Processes | mizugramming"
+  description="マルコフ過程を用いて状況ごとの意思決定をモデル化し、得点期待値の改善をシミュレーションで検証したプロジェクト詳細です。"
+  descriptionEn="Project detail for modeling situational decisions with Markov processes and validating expected scoring improvements through simulation."
+>
+  <section class="case-hero">
+    <div class="container case-hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n-ja="分析コンペ / 数理モデル" data-i18n-en="Analytics Competition / Mathematical Modeling">
+          分析コンペ / 数理モデル
+        </p>
+        <h1
+          data-i18n-ja="マルコフ過程によるチーム力向上分析"
+          data-i18n-en="Team Performance Analysis with Markov Processes"
+        >
+          マルコフ過程によるチーム力向上分析
+        </h1>
+        <p
+          class="hero-lead"
+          data-i18n-ja="状況、目的意識、イベント、次状態を確率モデルとしてつなぎ、どの意思決定が得点期待値を高めるかを検証しました。"
+          data-i18n-en="Connected context, intent, events, and next states as a probabilistic model to evaluate which decisions increase expected scoring."
+        >
+          状況、目的意識、イベント、次状態を確率モデルとしてつなぎ、どの意思決定が得点期待値を高めるかを検証しました。
+        </p>
+      </div>
+
+      <aside class="case-visual state-machine" aria-label="状態遷移モデル" data-i18n-aria-label-ja="状態遷移モデル" data-i18n-aria-label-en="State transition model">
+        <div class="state-node" data-i18n-ja="現在の状態 s" data-i18n-en="Current state s">現在の状態 s</div>
+        <div class="transition-arrow">P(s' | s, a)</div>
+        <div class="state-node state-node-accent" data-i18n-ja="次の状態 s'" data-i18n-en="Next state s'">次の状態 s'</div>
+        <div class="event-pill" data-i18n-ja="イベント a" data-i18n-en="Event a">イベント a</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="metric-grid metric-grid-three">
+        {resultMetrics.map((metric) => (
+          <article class="metric-card">
+            <strong>{metric.value}</strong>
+            <span data-i18n-ja={metric.label} data-i18n-en={metric.labelEn}>{metric.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container case-layout">
+      <SectionTitle
+        eyebrow="Problem"
+        eyebrowEn="Problem"
+        title="経験則を、比較可能な意思決定モデルに変換する"
+        titleEn="Turning heuristics into a comparable decision model"
+        description="試合中の判断は状況依存で、単純な平均値だけでは評価しづらい問題があります。そこで、アウト数と塁状況を状態空間として定義し、目的意識ごとのイベント発生と次状態を確率的に扱いました。"
+        descriptionEn="In-game decisions are context-dependent and difficult to evaluate with simple averages. This project defined a state space from outs and base occupancy, then modeled event occurrence and next states probabilistically by intent."
+      />
+
+      <div class="definition-grid">
+        {stateDefinitions.map((item) => (
+          <article class="definition-card">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <p data-i18n-ja={item.description} data-i18n-en={item.descriptionEn}>
+              {item.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container split-section">
+      <div>
+        <p class="eyebrow" data-i18n-ja="Approach" data-i18n-en="Approach">Approach</p>
+        <h2
+          data-i18n-ja="目的意識を変数として扱う"
+          data-i18n-en="Treating intent as a modeling variable"
+        >
+          目的意識を変数として扱う
+        </h2>
+        <p
+          data-i18n-ja="単に結果を集計するのではなく、打者がどの目的意識でプレーしているかを分類し、その目的意識がイベント発生確率と得点期待値にどう影響するかを比較しました。"
+          data-i18n-en="Rather than simply aggregating outcomes, the analysis classified the player's intent and compared how that intent affects event probabilities and expected scoring."
+        >
+          単に結果を集計するのではなく、打者がどの目的意識でプレーしているかを分類し、その目的意識がイベント発生確率と得点期待値にどう影響するかを比較しました。
+        </p>
+      </div>
+
+      <div class="intent-grid">
+        {intentPatterns.map((intent) => (
+          <article class="simple-card">
+            <h3 data-i18n-ja={intent.title} data-i18n-en={intent.titleEn}>{intent.title}</h3>
+            <p data-i18n-ja={intent.description} data-i18n-en={intent.descriptionEn}>
+              {intent.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-section">
+      <div>
+        <p class="eyebrow" data-i18n-ja="Simulation" data-i18n-en="Simulation">Simulation</p>
+        <h2
+          data-i18n-ja="現状と最適化後を同じ条件で比較"
+          data-i18n-en="Comparing the current and optimized policies under the same conditions"
+        >
+          現状と最適化後を同じ条件で比較
+        </h2>
+        <p
+          data-i18n-ja="投手・打者の分類、目的意識からイベントへの遷移、イベントから次状態への遷移を組み合わせ、1000試合の対戦シミュレーションを行いました。結果として、平均得点は3.0点から4.3点へ向上するシナリオが得られました。"
+          data-i18n-en="The simulation combined pitcher and batter classification, transitions from intent to events, and transitions from events to next states. A 1,000-game comparison produced a scenario where average scoring improved from 3.0 to 4.3 runs."
+        >
+          投手・打者の分類、目的意識からイベントへの遷移、イベントから次状態への遷移を組み合わせ、1000試合の対戦シミュレーションを行いました。結果として、平均得点は3.0点から4.3点へ向上するシナリオが得られました。
+        </p>
+      </div>
+
+      <div class="comparison-visual">
+        <div>
+          <span data-i18n-ja="現状" data-i18n-en="Current">現状</span>
+          <strong>3.0</strong>
+        </div>
+        <div class="comparison-arrow">+</div>
+        <div>
+          <span data-i18n-ja="最適化後" data-i18n-en="Optimized">最適化後</span>
+          <strong>4.3</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="takeaway-band">
+        <p class="eyebrow" data-i18n-ja="What this shows" data-i18n-en="What this shows">What this shows</p>
+        <h2
+          data-i18n-ja="意思決定をモデル化し、改善余地を数値で示す"
+          data-i18n-en="Modeling decisions and quantifying room for improvement"
+        >
+          意思決定をモデル化し、改善余地を数値で示す
+        </h2>
+        <p
+          data-i18n-ja="このプロジェクトで重視したのは、題材固有の知識よりも、複雑な状況を状態空間に落とし込み、選択肢の違いをシミュレーションで比較できる形にすることです。確率モデル、状態遷移、検証設計を組み合わせた意思決定支援の例として整理しています。"
+          data-i18n-en="The emphasis is not domain-specific knowledge itself, but the ability to translate complex situations into a state space and compare choices through simulation. It is presented as an example of decision support combining probabilistic modeling, state transitions, and validation design."
+        >
+          このプロジェクトで重視したのは、題材固有の知識よりも、複雑な状況を状態空間に落とし込み、選択肢の違いをシミュレーションで比較できる形にすることです。確率モデル、状態遷移、検証設計を組み合わせた意思決定支援の例として整理しています。
+        </p>
+        <a class="button button-secondary" href="/projects" data-i18n-ja="プロジェクト一覧へ戻る" data-i18n-en="Back to projects">
+          プロジェクト一覧へ戻る
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

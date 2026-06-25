@@ -10,41 +10,49 @@ import SectionTitle from "../components/SectionTitle.astro";
       <SectionTitle
         eyebrow="プロジェクト"
         eyebrowEn="Projects"
-        title="制作・研究プロジェクト"
-        titleEn="Featured Projects"
-        description="今後、概要、スクリーンショット、デモ、リポジトリリンクを追加していきます。"
-        descriptionEn="Add project summaries, screenshots, demos, and repository links here."
+        title="データ分析・機械学習プロジェクト"
+        titleEn="Data Analysis & Machine Learning Projects"
+        description="課題設定、モデル構築、検証実験、改善案の評価までをひとつの流れとして整理しています。"
+        descriptionEn="Projects organized around problem framing, model building, validation experiments, and evaluation of improvement plans."
       />
     </div>
   </section>
 
   <section class="section section-tight">
     <div class="container">
-      <!-- 各プロジェクトが整理できたら、ここを実データに置き換えます。 -->
       <div class="card-grid">
         <ProjectCard
-          title="野球シミュレーションラボ"
-          titleEn="Baseball Simulation Lab"
-          description="野球シミュレーター、試合ロジック、アニメーション、シミュレーション結果を整理する予定です。"
-          descriptionEn="Placeholder for a baseball simulator, match logic, animation GIFs, and simulation results."
-          tags={["野球", "モンテカルロ", "可視化"]}
-          tagsEn={["Baseball", "Monte Carlo", "Visualization"]}
+          title="統合シミュレータによる改善案の事前検証"
+          titleEn="Pre-validating Improvement Plans with an Integrated Simulator"
+          description="投手・打者・飛距離の各モデルを接続し、介入案をシーズン単位で比較する統合シミュレーションを設計しました。"
+          descriptionEn="Connected pitcher, batter, and flight-distance models to compare intervention plans at season scale."
+          tags={["機械学習", "物理モデル", "検証実験"]}
+          tagsEn={["Machine Learning", "Physical Modeling", "Validation"]}
+          href="/projects/integrated-batting-simulator"
+          status="卒業研究"
+          statusEn="Thesis Project"
         />
         <ProjectCard
-          title="打者意図の最適化"
-          titleEn="Batter Intent Optimization"
-          description="打者の戦略や意思決定に関する最適化モデルをまとめる予定です。"
-          descriptionEn="Placeholder for optimization models related to batter strategy and decision making."
-          tags={["最適化", "Python", "スポーツ分析"]}
-          tagsEn={["Optimization", "Python", "Sports Analytics"]}
+          title="マルコフ過程によるチーム力向上分析"
+          titleEn="Team Performance Analysis with Markov Processes"
+          description="状態遷移モデルを使い、状況ごとの目的意識とイベント発生を確率的に扱って改善効果を検証しました。"
+          descriptionEn="Used state-transition modeling to probabilistically handle situational intent and event outcomes, then evaluate improvement effects."
+          tags={["マルコフ過程", "確率モデル", "シミュレーション"]}
+          tagsEn={["Markov Processes", "Probabilistic Modeling", "Simulation"]}
+          href="/projects/team-performance-simulation"
+          status="分析コンペ"
+          statusEn="Analytics Competition"
         />
         <ProjectCard
-          title="劣モジュラ貪欲法の学習"
-          titleEn="Submodular Greedy Study"
-          description="劣モジュラ最適化の実験、貪欲法の考察、学習メモを追加する予定です。"
-          descriptionEn="Placeholder for submodular optimization experiments and study notes."
-          tags={["劣モジュラ最適化", "貪欲法"]}
-          tagsEn={["Submodular Optimization", "Greedy Algorithm"]}
+          title="機械学習による数理問題へのアプローチ"
+          titleEn="Machine Learning Approach to Mathematical Problems"
+          description="分類器による予測と特徴量の寄与分析から、数理問題の構造理解につながる仮説を探る研究テーマです。"
+          descriptionEn="A research theme that uses classifiers and feature contribution analysis to explore hypotheses about mathematical structure."
+          tags={["機械学習", "特徴量解釈", "数理最適化"]}
+          tagsEn={["Machine Learning", "Feature Interpretation", "Mathematical Optimization"]}
+          href="/research"
+          status="研究テーマ"
+          statusEn="Research Theme"
         />
       </div>
     </div>

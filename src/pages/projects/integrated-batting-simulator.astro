@@ -1,0 +1,244 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+
+const modelSteps = [
+  {
+    title: "投球条件の生成",
+    titleEn: "Pitch Condition Generation",
+    description: "カウント、走者状況、球種、コース、球速などを条件付き確率分布として扱う。",
+    descriptionEn: "Treats count, runner state, pitch type, location, and velocity as conditional probability distributions.",
+  },
+  {
+    title: "打撃意思決定・コンタクト",
+    titleEn: "Batting Decision and Contact",
+    description: "スイング判断、空振り、コンタクト、打球速度・角度を機械学習と物理式で接続する。",
+    descriptionEn: "Connects swing decisions, misses, contact, exit velocity, and launch angle with machine learning and physical equations.",
+  },
+  {
+    title: "飛距離・HR期待値",
+    titleEn: "Flight Distance and HR Expectation",
+    description: "打球条件と球場条件を入力し、飛距離とHR期待値を推定する。",
+    descriptionEn: "Uses batted-ball and ballpark conditions to estimate flight distance and home-run expectation.",
+  },
+];
+
+const validationMetrics = [
+  {
+    value: "98.8%",
+    label: "球種選択の一致度",
+    labelEn: "Pitch-type agreement",
+  },
+  {
+    value: "7.24ft",
+    label: "飛距離の絶対平均誤差",
+    labelEn: "Mean absolute distance error",
+  },
+  {
+    value: "80%+",
+    label: "主要打球項目の分布整合性",
+    labelEn: "Distribution alignment for key batted-ball variables",
+  },
+  {
+    value: "500",
+    label: "検証シーズン数",
+    labelEn: "Simulated seasons for validation",
+  },
+];
+
+const beforeAfter = [
+  {
+    metric: "平均HR数",
+    metricEn: "Average HR count",
+    before: "54.2",
+    after: "59.5",
+    change: "+5.3",
+  },
+  {
+    metric: "平均飛距離",
+    metricEn: "Average flight distance",
+    before: "209.4ft",
+    after: "246.8ft",
+    change: "+37.4ft",
+  },
+  {
+    metric: "330ft以上の打球",
+    metricEn: "Batted balls over 330ft",
+    before: "111.4",
+    after: "125.2",
+    change: "+13.7",
+  },
+];
+---
+
+<BaseLayout
+  title="統合シミュレータによる改善案の事前検証 | mizugramming"
+  titleEn="Pre-validating Improvement Plans with an Integrated Simulator | mizugramming"
+  description="投球条件、打撃意思決定、コンタクト、飛距離を統合した機械学習・物理ハイブリッドシミュレータのプロジェクト詳細です。"
+  descriptionEn="Project detail for a machine-learning and physics hybrid simulator integrating pitch conditions, batting decisions, contact, and flight distance."
+>
+  <section class="case-hero">
+    <div class="container case-hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n-ja="卒業研究 / 機械学習" data-i18n-en="Thesis Project / Machine Learning">
+          卒業研究 / 機械学習
+        </p>
+        <h1
+          data-i18n-ja="統合シミュレータによる改善案の事前検証"
+          data-i18n-en="Pre-validating Improvement Plans with an Integrated Simulator"
+        >
+          統合シミュレータによる改善案の事前検証
+        </h1>
+        <p
+          class="hero-lead"
+          data-i18n-ja="結果の後追い分析で終わらせず、改善案を出す前に期待値とリスクを比較できる分析基盤を設計しました。"
+          data-i18n-en="Designed an analysis base that compares expected value and risk before proposing improvements, instead of stopping at retrospective analysis."
+        >
+          結果の後追い分析で終わらせず、改善案を出す前に期待値とリスクを比較できる分析基盤を設計しました。
+        </p>
+      </div>
+
+      <aside class="case-visual" aria-label="統合シミュレータの概念図" data-i18n-aria-label-ja="統合シミュレータの概念図" data-i18n-aria-label-en="Integrated simulator concept diagram">
+        <div class="pipeline-visual">
+          {modelSteps.map((step) => (
+            <div class="pipeline-node">
+              <span data-i18n-ja={step.title} data-i18n-en={step.titleEn}>{step.title}</span>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="metric-grid">
+        {validationMetrics.map((metric) => (
+          <article class="metric-card">
+            <strong>{metric.value}</strong>
+            <span data-i18n-ja={metric.label} data-i18n-en={metric.labelEn}>{metric.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container case-layout">
+      <SectionTitle
+        eyebrow="Problem"
+        eyebrowEn="Problem"
+        title="改善案を出す前に、効果を検証できる状態をつくる"
+        titleEn="Make improvement plans testable before proposing them"
+        description="この研究では、打者へのフィードバックを「分析 → 提案 → 結果待ち」で終わらせず、提案前にシミュレータ上で効果と副作用を比較する流れに変えることを目的にしました。"
+        descriptionEn="This research aimed to change the feedback loop from analysis, proposal, and waiting for results into a workflow where effects and side effects can be compared in simulation before making a proposal."
+      />
+
+      <div class="process-grid">
+        {modelSteps.map((step, index) => (
+          <article class="process-step">
+            <span class="step-number">0{index + 1}</span>
+            <h3 data-i18n-ja={step.title} data-i18n-en={step.titleEn}>{step.title}</h3>
+            <p data-i18n-ja={step.description} data-i18n-en={step.descriptionEn}>
+              {step.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container split-section">
+      <div>
+        <p class="eyebrow" data-i18n-ja="Modeling" data-i18n-en="Modeling">Modeling</p>
+        <h2
+          data-i18n-ja="機械学習と物理モデルを接続する"
+          data-i18n-en="Connecting machine learning with physical modeling"
+        >
+          機械学習と物理モデルを接続する
+        </h2>
+        <p
+          data-i18n-ja="投手モデルでは球種・コース・球速を状況に応じて生成し、打者モデルではスイング判断やコンタクトを予測します。さらに、スイング物理量とオフセットを使って打球条件を算出し、球場ごとの飛距離モデルへ接続しました。"
+          data-i18n-en="The pitcher model generates pitch type, location, and velocity by context, while the batter model predicts swing decisions and contact. Swing physics and contact offset are then used to compute batted-ball conditions and pass them to ballpark-specific distance models."
+        >
+          投手モデルでは球種・コース・球速を状況に応じて生成し、打者モデルではスイング判断やコンタクトを予測します。さらに、スイング物理量とオフセットを使って打球条件を算出し、球場ごとの飛距離モデルへ接続しました。
+        </p>
+      </div>
+
+      <div class="method-list">
+        <article class="simple-card">
+          <h3 data-i18n-ja="確率的生成" data-i18n-en="Probabilistic generation">確率的生成</h3>
+          <p
+            data-i18n-ja="決定論的な一点予測ではなく、状況に応じた分布から投球条件を生成します。"
+            data-i18n-en="Generates pitch conditions from context-dependent distributions instead of relying on a single deterministic prediction."
+          >
+            決定論的な一点予測ではなく、状況に応じた分布から投球条件を生成します。
+          </p>
+        </article>
+        <article class="simple-card">
+          <h3 data-i18n-ja="分布での妥当性評価" data-i18n-en="Distribution-level validation">分布での妥当性評価</h3>
+          <p
+            data-i18n-ja="Wasserstein距離、KS統計量、OVLなどを用い、平均値だけでなく分布形状の再現性を評価しました。"
+            data-i18n-en="Used Wasserstein distance, KS statistics, and OVL to evaluate not only means but also distributional reproducibility."
+          >
+            Wasserstein距離、KS統計量、OVLなどを用い、平均値だけでなく分布形状の再現性を評価しました。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        eyebrow="Result"
+        eyebrowEn="Result"
+        title="介入案をシーズン単位で比較"
+        titleEn="Comparing an intervention at season scale"
+        description="500シーズンのシミュレーションにより、単一シーズンの上振れ・下振れをならし、介入前後の期待値を比較しました。"
+        descriptionEn="By simulating 500 seasons, the analysis smoothed out single-season variance and compared expected values before and after the intervention."
+      />
+
+      <div class="result-table" role="table" aria-label="介入前後の比較" data-i18n-aria-label-ja="介入前後の比較" data-i18n-aria-label-en="Before-and-after comparison">
+        <div class="result-row result-head" role="row">
+          <span role="columnheader" data-i18n-ja="指標" data-i18n-en="Metric">指標</span>
+          <span role="columnheader" data-i18n-ja="修正前" data-i18n-en="Before">修正前</span>
+          <span role="columnheader" data-i18n-ja="修正後" data-i18n-en="After">修正後</span>
+          <span role="columnheader" data-i18n-ja="変化" data-i18n-en="Change">変化</span>
+        </div>
+        {beforeAfter.map((row) => (
+          <div class="result-row" role="row">
+            <span role="cell" data-i18n-ja={row.metric} data-i18n-en={row.metricEn}>{row.metric}</span>
+            <span role="cell">{row.before}</span>
+            <span role="cell">{row.after}</span>
+            <strong role="cell">{row.change}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="takeaway-band">
+        <p class="eyebrow" data-i18n-ja="What this shows" data-i18n-en="What this shows">What this shows</p>
+        <h2
+          data-i18n-ja="分析結果を、意思決定に使える形へ落とし込む"
+          data-i18n-en="Turning analysis results into decision-ready evidence"
+        >
+          分析結果を、意思決定に使える形へ落とし込む
+        </h2>
+        <p
+          data-i18n-ja="このプロジェクトでは、機械学習モデルを作るだけでなく、現実の分布をどこまで再現できているかを評価し、改善案の効果を複数シーズンの期待値として示しました。題材はスポーツですが、中心にあるのはデータ分析、モデル設計、検証、解釈のプロセスです。"
+          data-i18n-en="This project did not stop at building machine-learning models. It evaluated how well the simulated distributions reproduced reality and expressed the effect of an improvement plan as multi-season expected value. The domain is sports, but the core work is data analysis, model design, validation, and interpretation."
+        >
+          このプロジェクトでは、機械学習モデルを作るだけでなく、現実の分布をどこまで再現できているかを評価し、改善案の効果を複数シーズンの期待値として示しました。題材はスポーツですが、中心にあるのはデータ分析、モデル設計、検証、解釈のプロセスです。
+        </p>
+        <a class="button button-secondary" href="/projects" data-i18n-ja="プロジェクト一覧へ戻る" data-i18n-en="Back to projects">
+          プロジェクト一覧へ戻る
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

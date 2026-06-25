@@ -1,6 +1,60 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+
+const focusAreas = [
+  {
+    title: "データ分析",
+    titleEn: "Data Analysis",
+    description: "課題設定から可視化、結果の解釈までを一連の流れとして扱います。",
+    descriptionEn: "I handle the full flow from problem framing and visualization to interpretation.",
+  },
+  {
+    title: "機械学習モデリング",
+    titleEn: "Machine Learning Modeling",
+    description: "予測精度だけでなく、特徴量や分布の意味を見ながらモデルを評価します。",
+    descriptionEn: "I evaluate models not only by accuracy, but also by features and distributional behavior.",
+  },
+  {
+    title: "シミュレーション設計",
+    titleEn: "Simulation Design",
+    description: "改善案を実行前に比較できるよう、検証可能な実験環境を設計します。",
+    descriptionEn: "I design testable environments where improvement plans can be compared before execution.",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Modeling",
+    titleEn: "Modeling",
+    items: ["機械学習", "数理モデル", "確率過程", "最適化"],
+    itemsEn: ["Machine Learning", "Mathematical Modeling", "Stochastic Processes", "Optimization"],
+  },
+  {
+    title: "Implementation",
+    titleEn: "Implementation",
+    items: ["Python", "シミュレーション", "評価指標設計", "データ可視化"],
+    itemsEn: ["Python", "Simulation", "Metric Design", "Data Visualization"],
+  },
+];
+
+const links = [
+  {
+    label: "GitHub",
+    href: "https://github.com/mizugramming",
+    text: "github.com/mizugramming",
+  },
+  {
+    label: "AtCoder",
+    href: "https://atcoder.jp/users/ktbys",
+    text: "atcoder.jp/users/ktbys",
+  },
+  {
+    label: "Kaggle",
+    href: "https://www.kaggle.com/kitabayashimizuki",
+    text: "kaggle.com/kitabayashimizuki",
+  },
+];
 ---
 
 <BaseLayout title="自己紹介 | mizugramming" titleEn="About | mizugramming">
@@ -11,86 +65,124 @@ import SectionTitle from "../components/SectionTitle.astro";
         eyebrowEn="About"
         title="自己紹介"
         titleEn="About Me"
-        description="背景、関心分野、スキル、リンクを整理するページです。"
-        descriptionEn="This page will introduce my background, interests, skills, and links."
+        description="データ分析、機械学習、数理モデルを使って、課題を検証可能な形にすることに関心があります。"
+        descriptionEn="I am interested in using data analysis, machine learning, and mathematical modeling to make problems testable."
       />
     </div>
   </section>
 
   <section class="section section-tight">
-    <div class="container about-layout">
-    <article class="content-block">
-      <h3 data-i18n-ja="プロフィール" data-i18n-en="Profile">プロフィール</h3>
-      
-      <p data-i18n-ja="名前: 北林 瑞生" data-i18n-en="Name: Mizuki Kitabayashi">
-        名前: 北林 瑞生
-      </p>
+    <div class="container about-profile-grid">
+      <article class="about-profile-card">
+        <p class="eyebrow" data-i18n-ja="Profile" data-i18n-en="Profile">Profile</p>
+        <h2 class="about-name" data-i18n-ja="北林 瑞生" data-i18n-en="Mizuki Kitabayashi">
+          北林 瑞生
+        </h2>
+        <p
+          class="about-role"
+          data-i18n-ja="熊本大学大学院 半導体・情報数理専攻"
+          data-i18n-en="Graduate School of Kumamoto University, Department of Semiconductor and Informatics"
+        >
+          熊本大学大学院 半導体・情報数理専攻
+        </p>
+        <p
+          class="about-lead-copy"
+          data-i18n-ja="データ分析、機械学習、数理モデルを使って、複雑な課題を検証可能な形に変換することに取り組んでいます。"
+          data-i18n-en="I work on turning complex problems into testable forms using data analysis, machine learning, and mathematical modeling."
+        >
+          データ分析、機械学習、数理モデルを使って、複雑な課題を検証可能な形に変換することに取り組んでいます。
+        </p>
 
-      <p
-        data-i18n-ja="現在所属: 熊本大学大学院 半導体・情報数理専攻"
-        data-i18n-en="Current Affiliation: Graduate School of Kumamoto University, Department of Semiconductor and Informatics"
-      >
-        現在所属: 熊本大学大学院 半導体・情報数理専攻
-      </p>
-
-      <p
-        data-i18n-ja="過去にデータを用いた分析や機械学習を用いた予測、シミュレータの作成などを行いました。現在の主題としては数学においてNP困難とされている問題に対して機械学習を用いた解決に向けてアプローチしております。数学者が頭を抱えている問題に対して積極的なアプローチを試みて分野の発展に貢献できればと考えております。"
-        data-i18n-en="In the past, I have worked on data analysis, machine learning predictions, and creating simulators. My current research focuses on approaching NP-hard mathematical problems using machine learning. I aim to contribute to the field's development by actively tackling problems that mathematicians struggle with."
-      >
-        過去にデータを用いた分析や機械学習を用いた予測、シミュレータの作成などを行いました。現在の主題としては数学においてNP困難とされている問題に対して機械学習を用いた解決に向けてアプローチしております。数学者が頭を抱えている問題に対して積極的なアプローチを試みて分野の発展に貢献できればと考えております。
-      </p>
-
-      <p
-        data-i18n-ja="将来的にはデータを用いて社会課題の解決やビジネス課題の解決など社会貢献を目的としてそれに付随する分野の学習を行っていきたい。"
-        data-i18n-en="In the future, I want to use data to solve social and business issues, and I plan to continue learning in related fields to contribute to society."
-      >
-        将来的にはデータを用いて社会課題の解決やビジネス課題の解決など社会貢献を目的としてそれに付随する分野の学習を行っていきたい。
-      </p>
-    </article>
-
-      <article class="content-block">
-        <h3 data-i18n-ja="関心分野" data-i18n-en="Interests">関心分野</h3>
-        <!-- 関心分野が具体化したら、このリストを編集します。 -->
-        <ul class="plain-list">
-          <li data-i18n-ja="野球シミュレーション" data-i18n-en="Baseball simulation">
-            野球シミュレーション
-          </li>
-          <li data-i18n-ja="最適化" data-i18n-en="Optimization">最適化</li>
-          <li data-i18n-ja="スポーツアナリティクス" data-i18n-en="Sports analytics">
-            スポーツアナリティクス
-          </li>
-          <li data-i18n-ja="データ可視化" data-i18n-en="Data visualization">
-            データ可視化
-          </li>
-          <li data-i18n-ja="Pythonプログラミング" data-i18n-en="Python programming">
-            Pythonプログラミング
-          </li>
-        </ul>
+        <div class="profile-facts">
+          <div>
+            <span data-i18n-ja="現在のテーマ" data-i18n-en="Current Theme">現在のテーマ</span>
+            <strong
+              data-i18n-ja="NP困難な数理問題への機械学習アプローチ"
+              data-i18n-en="Machine learning approach to NP-hard mathematical problems"
+            >
+              NP困難な数理問題への機械学習アプローチ
+            </strong>
+          </div>
+          <div>
+            <span data-i18n-ja="制作・研究経験" data-i18n-en="Project Experience">制作・研究経験</span>
+            <strong
+              data-i18n-ja="予測モデル、シミュレータ、検証実験の設計"
+              data-i18n-en="Prediction models, simulators, and validation experiments"
+            >
+              予測モデル、シミュレータ、検証実験の設計
+            </strong>
+          </div>
+        </div>
       </article>
 
-      <article class="content-block">
-              <h3 data-i18n-ja="リンク" data-i18n-en="Links">リンク</h3>
-              <ul class="plain-list links-list">
-                <li>
-                  <span class="link-label">GitHub:</span>
-                  <a href="https://github.com/mizugramming" target="_blank" rel="noreferrer">
-                    github.com/mizugramming
-                  </a>
-                </li>
-                <li>
-                  <span class="link-label">Atcoder:</span>
-                  <a href="https://atcoder.jp/users/ktbys" target="_blank" rel="noreferrer">
-                    atcoder.jp/users/ktbys
-                  </a>
-                </li>
-                <li>
-                  <span class="link-label">Kaggle:</span>
-                  <a href="https://www.kaggle.com/kitabayashimizuki" target="_blank" rel="noreferrer">
-                    kaggle.com/kitabayashimizuki
-                  </a>
-                </li>
-              </ul>
+      <aside class="about-focus-panel">
+        <h3 data-i18n-ja="取り組み方" data-i18n-en="How I Work">取り組み方</h3>
+        <div class="focus-list">
+          {focusAreas.map((area) => (
+            <article class="focus-item">
+              <h4 data-i18n-ja={area.title} data-i18n-en={area.titleEn}>{area.title}</h4>
+              <p data-i18n-ja={area.description} data-i18n-en={area.descriptionEn}>
+                {area.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container about-detail-grid">
+      <article class="about-text-block">
+        <p class="eyebrow" data-i18n-ja="Background" data-i18n-en="Background">Background</p>
+        <h2 data-i18n-ja="分析を、意思決定に使える形まで持っていく" data-i18n-en="Turning analysis into decision-ready evidence">
+          分析を、意思決定に使える形まで持っていく
+        </h2>
+        <p
+          data-i18n-ja="これまで、データ分析、機械学習による予測、数理モデルとシミュレータの作成に取り組んできました。特に、課題設定からモデル構築、検証実験、結果の解釈までを一貫して設計し、改善案を数値で比較できる形にすることを重視しています。"
+          data-i18n-en="I have worked on data analysis, machine-learning prediction, mathematical modeling, and simulator development. I especially focus on designing the full flow from problem framing and model building to validation experiments and interpretation, making improvement plans numerically comparable."
+        >
+          これまで、データ分析、機械学習による予測、数理モデルとシミュレータの作成に取り組んできました。特に、課題設定からモデル構築、検証実験、結果の解釈までを一貫して設計し、改善案を数値で比較できる形にすることを重視しています。
+        </p>
+        <p
+          data-i18n-ja="現在は、NP困難な数理問題に対して機械学習を用いたアプローチにも取り組んでいます。将来的には、データとモデルを用いて社会課題やビジネス課題の解決に貢献できるよう、関連分野の学習と実装を続けていきたいと考えています。"
+          data-i18n-en="I am currently also working on machine-learning approaches to NP-hard mathematical problems. In the future, I want to keep learning and implementing methods that use data and models to contribute to solving social and business problems."
+        >
+          現在は、NP困難な数理問題に対して機械学習を用いたアプローチにも取り組んでいます。将来的には、データとモデルを用いて社会課題やビジネス課題の解決に貢献できるよう、関連分野の学習と実装を続けていきたいと考えています。
+        </p>
       </article>
+
+      <aside class="about-skill-panel">
+        {skillGroups.map((group) => (
+          <section class="skill-group">
+            <h3 data-i18n-ja={group.title} data-i18n-en={group.titleEn}>{group.title}</h3>
+            <ul class="skill-chip-list">
+              {group.items.map((item, index) => (
+                <li data-i18n-ja={item} data-i18n-en={group.itemsEn[index] ?? item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container about-links-row">
+      <div>
+        <p class="eyebrow" data-i18n-ja="Links" data-i18n-en="Links">Links</p>
+        <h2 data-i18n-ja="活動リンク" data-i18n-en="Activity Links">活動リンク</h2>
+      </div>
+      <ul class="profile-link-list">
+        {links.map((link) => (
+          <li>
+            <span>{link.label}</span>
+            <a href={link.href} target="_blank" rel="noreferrer">
+              {link.text}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 </BaseLayout>

@@ -14,16 +14,16 @@ import SectionTitle from "../components/SectionTitle.astro";
         <h1>mizugramming</h1>
         <p
           class="hero-lead"
-          data-i18n-ja="野球シミュレーション / 最適化 / データ可視化"
-          data-i18n-en="Baseball Simulation / Optimization / Data Visualization"
+          data-i18n-ja="データ分析・機械学習・シミュレーションで、改善案を検証可能な形にするポートフォリオ"
+          data-i18n-en="A portfolio for turning data analysis, machine learning, and simulation into testable improvement plans"
         >
-          野球シミュレーション / 最適化 / データ可視化
+          データ分析・機械学習・シミュレーションで、改善案を検証可能な形にするポートフォリオ
         </p>
         <p
-          data-i18n-ja="このサイトでは、制作プロジェクト、研究関心、学習メモを整理して紹介します。"
-          data-i18n-en="This site will introduce my projects, research interests, and study notes."
+          data-i18n-ja="課題設定からモデル設計、検証実験、結果の解釈までを一貫して扱ったプロジェクトを整理しています。"
+          data-i18n-en="This site organizes projects that connect problem framing, model design, validation experiments, and result interpretation."
         >
-          このサイトでは、制作プロジェクト、研究関心、学習メモを整理して紹介します。
+          課題設定からモデル設計、検証実験、結果の解釈までを一貫して扱ったプロジェクトを整理しています。
         </p>
         <div class="hero-actions">
           <a
@@ -53,20 +53,20 @@ import SectionTitle from "../components/SectionTitle.astro";
       >
         <h2 data-i18n-ja="主なテーマ" data-i18n-en="Main Themes">主なテーマ</h2>
         <ul class="theme-list">
-          <li data-i18n-ja="野球シミュレーション" data-i18n-en="Baseball simulation">
-            野球シミュレーション
+          <li data-i18n-ja="シミュレーション設計" data-i18n-en="Simulation design">
+            シミュレーション設計
           </li>
-          <li data-i18n-ja="モンテカルロシミュレーション" data-i18n-en="Monte Carlo simulation">
-            モンテカルロシミュレーション
+          <li data-i18n-ja="機械学習モデリング" data-i18n-en="Machine learning modeling">
+            機械学習モデリング
           </li>
-          <li data-i18n-ja="スポーツアナリティクス" data-i18n-en="Sports analytics">
-            スポーツアナリティクス
+          <li data-i18n-ja="数理モデル化" data-i18n-en="Mathematical modeling">
+            数理モデル化
           </li>
-          <li data-i18n-ja="劣モジュラ最適化" data-i18n-en="Submodular optimization">
-            劣モジュラ最適化
+          <li data-i18n-ja="検証実験・評価指標" data-i18n-en="Validation and metrics">
+            検証実験・評価指標
           </li>
-          <li data-i18n-ja="Pythonプログラミング" data-i18n-en="Python programming">
-            Pythonプログラミング
+          <li data-i18n-ja="Pythonによる分析実装" data-i18n-en="Python analysis implementation">
+            Pythonによる分析実装
           </li>
         </ul>
       </aside>
@@ -80,35 +80,43 @@ import SectionTitle from "../components/SectionTitle.astro";
         eyebrowEn="Featured"
         title="代表プロジェクト"
         titleEn="Representative Projects"
-        description="プロジェクトの詳細は、ポートフォリオを育てながら追加していきます。"
-        descriptionEn="Project details will be added as the portfolio grows."
+        description="データから課題を見つけ、モデルを作り、改善案をシミュレーションで評価したプロジェクトです。"
+        descriptionEn="Projects that identify issues from data, build models, and evaluate improvement plans through simulation."
       />
 
-      <!-- 後から各プロジェクトの詳細ページを作り、hrefを更新します。 -->
       <div class="card-grid">
         <ProjectCard
-          title="野球シミュレーションラボ"
-          titleEn="Baseball Simulation Lab"
-          description="野球の試合シミュレーション実験や可視化結果を追加する予定です。"
-          descriptionEn="Placeholder for baseball game simulation experiments and visual outputs."
-          tags={["野球", "シミュレーション", "Python"]}
-          tagsEn={["Baseball", "Simulation", "Python"]}
+          title="統合シミュレータによる改善案の事前検証"
+          titleEn="Pre-validating Improvement Plans with an Integrated Simulator"
+          description="投球条件、打撃意思決定、コンタクト、飛距離をつなぐ機械学習・物理ハイブリッドモデルを設計しました。"
+          descriptionEn="Designed a machine-learning and physics hybrid model that connects pitch conditions, batting decisions, contact, and flight distance."
+          tags={["機械学習", "シミュレーション", "検証設計"]}
+          tagsEn={["Machine Learning", "Simulation", "Validation Design"]}
+          href="/projects/integrated-batting-simulator"
+          status="卒業研究"
+          statusEn="Thesis Project"
         />
         <ProjectCard
-          title="打者意図の最適化"
-          titleEn="Batter Intent Optimization"
-          description="打者の判断や戦略を、モデル化と最適化の観点から整理する予定です。"
-          descriptionEn="Placeholder for modeling batter decisions and optimization strategies."
-          tags={["最適化", "スポーツ分析"]}
-          tagsEn={["Optimization", "Sports Analytics"]}
+          title="マルコフ過程によるチーム力向上分析"
+          titleEn="Team Performance Analysis with Markov Processes"
+          description="状態空間と遷移確率を定義し、状況ごとの意思決定を比較することで得点期待値の改善を検証しました。"
+          descriptionEn="Defined state spaces and transition probabilities to compare decisions by context and evaluate expected scoring improvements."
+          tags={["数理モデル", "確率過程", "意思決定"]}
+          tagsEn={["Mathematical Modeling", "Stochastic Processes", "Decision Making"]}
+          href="/projects/team-performance-simulation"
+          status="分析コンペ"
+          statusEn="Analytics Competition"
         />
         <ProjectCard
-          title="劣モジュラ貪欲法の学習"
-          titleEn="Submodular Greedy Study"
-          description="貪欲アルゴリズムや劣モジュラ最適化に関する学習メモを追加する予定です。"
-          descriptionEn="Placeholder for notes and experiments on greedy algorithms."
-          tags={["劣モジュラ", "アルゴリズム"]}
-          tagsEn={["Submodular", "Algorithms"]}
+          title="機械学習による数理問題へのアプローチ"
+          titleEn="Machine Learning Approach to Mathematical Problems"
+          description="NP困難な数理問題に対して、予測モデルと特徴量解釈から構造的な手がかりを探る研究テーマです。"
+          descriptionEn="A research theme that uses prediction models and feature interpretation to seek structural clues in NP-hard mathematical problems."
+          tags={["機械学習", "数理", "特徴量分析"]}
+          tagsEn={["Machine Learning", "Mathematics", "Feature Analysis"]}
+          href="/research"
+          status="研究テーマ"
+          statusEn="Research Theme"
         />
       </div>
     </div>

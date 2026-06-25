@@ -4,22 +4,28 @@ import SectionTitle from "../components/SectionTitle.astro";
 
 const interests = [
   {
-    title: "シミュレーション",
-    titleEn: "Simulation",
-    description: "モンテカルロシミュレーション、野球の試合モデル、実験設計を整理する予定です。",
-    descriptionEn: "Placeholder for Monte Carlo simulation, baseball game modeling, and experiment design.",
+    title: "シミュレーションによる意思決定支援",
+    titleEn: "Simulation-based Decision Support",
+    description: "複雑な状況を状態空間や確率過程としてモデル化し、改善案を同じ条件で比較することに関心があります。",
+    descriptionEn: "I am interested in modeling complex situations as state spaces or stochastic processes, then comparing improvement plans under the same conditions.",
   },
   {
-    title: "最適化",
-    titleEn: "Optimization",
-    description: "数理最適化、意思決定モデル、アルゴリズム学習の内容を追加する予定です。",
-    descriptionEn: "Placeholder for mathematical optimization, decision models, and algorithm studies.",
+    title: "機械学習と物理モデルの統合",
+    titleEn: "Integrating Machine Learning and Physical Models",
+    description: "観測データから学習したモデルと、現象を説明する物理式を組み合わせ、解釈しやすいシミュレータを作ることに取り組んでいます。",
+    descriptionEn: "I work on combining models learned from observed data with physical equations that explain phenomena, creating simulators that are easier to interpret.",
   },
   {
-    title: "スポーツアナリティクス",
-    titleEn: "Sports Analytics",
-    description: "野球データ分析、評価指標、データ可視化のテーマを整理する予定です。",
-    descriptionEn: "Placeholder for baseball data analysis, metrics, and visualization topics.",
+    title: "検証実験と評価指標設計",
+    titleEn: "Validation Experiments and Metric Design",
+    description: "平均値だけでなく分布の再現性や誤差、期待値の変化を見ながら、分析結果を意思決定に使える形へ落とし込むことを重視しています。",
+    descriptionEn: "I focus on turning analysis into decision-ready evidence by evaluating distributional reproducibility, error, and expected-value changes rather than only averages.",
+  },
+  {
+    title: "NP困難な数理問題への機械学習アプローチ",
+    titleEn: "Machine Learning Approach to NP-hard Mathematical Problems",
+    description: "臨界指数を予測する分類器を作成し、分類に寄与した特徴量を手がかりに、数理的なつながりや新しい仮説を見つけることを目指しています。",
+    descriptionEn: "I build classifiers that predict critical exponents, then use influential features as clues for finding mathematical relationships and new hypotheses.",
   },
 ];
 ---
@@ -32,8 +38,8 @@ const interests = [
         eyebrowEn="Research"
         title="研究・学習テーマ"
         titleEn="Research & Study Interests"
-        description="研究、授業、個人制作を通して学んだテーマを整理するページです。"
-        descriptionEn="This page will organize topics studied through research, coursework, and personal projects."
+        description="データ分析、機械学習、数理モデルを使って、複雑な問題を検証可能な形へ変換することに関心があります。"
+        descriptionEn="I am interested in using data analysis, machine learning, and mathematical modeling to turn complex problems into testable forms."
       />
     </div>
   </section>

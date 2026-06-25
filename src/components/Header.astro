@@ -9,6 +9,11 @@ const navItems = [
   { label: "ギャラリー", labelEn: "Gallery", href: "/gallery" },
   { label: "自己紹介", labelEn: "About", href: "/about" },
 ];
+
+const isActivePath = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+};
 ---
 
 <header class="site-header">
@@ -32,7 +37,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={item.href}
-          class:list={[{ active: currentPath === item.href }, "nav-link"]}
+          class:list={[{ active: isActivePath(item.href) }, "nav-link"]}
           data-i18n-ja={item.label}
           data-i18n-en={item.labelEn}
         >
